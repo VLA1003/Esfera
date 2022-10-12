@@ -15,6 +15,8 @@ public class ColisionMoneda : MonoBehaviour
     int numeroMonedas = 0;
     bool estaJugando = true;
 
+    public AudioClip sonidoMoneda;
+
     private void Update()
     {
         if (estaJugando == true)
@@ -35,6 +37,7 @@ public class ColisionMoneda : MonoBehaviour
     {
         if (other.gameObject.tag == "Coin")
         {
+            AudioSource.PlayClipAtPoint(sonidoMoneda, transform.position);
             other.gameObject.SetActive(false);
             numeroMonedas = numeroMonedas + 1;
         }
